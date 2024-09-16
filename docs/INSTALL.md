@@ -23,6 +23,7 @@ sudo make install
 - python-pillow
 - python-qrcode
 - python-reedsolo
+- ghostscript
 
 ### Restore without qr-backup
 Restore works without qr-backup installed. It requires:

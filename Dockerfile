@@ -2,12 +2,13 @@ FROM python:3.12
 
 RUN apt-get update \
    && apt-get install -y \
+     fonts-dejavu \
+     ghostscript \
      gnupg2 \
      imagemagick \
-     zbar-tools \
-     fonts-dejavu \
      python3-pillow \
      python3-qrcode \
+     zbar-tools \
      sed \
    && printf "deb http://http.us.debian.org/debian/ testing non-free contrib main\n" > /etc/apt/sources.list.d/testing.list \
    && apt-get update \
