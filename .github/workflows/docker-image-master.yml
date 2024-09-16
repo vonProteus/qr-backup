@@ -15,6 +15,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      -  name: Get current date
+         id: date
+         run: echo "::set-output name=date::$(date -Iseconds | sed "s/[:+]/_/g")"
+
       # https://github.com/docker/setup-qemu-action#usage
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3.2.0
@@ -42,4 +46,5 @@ jobs:
           pull: true
           push: true
           tags: |
-            ${{ vars.DOCKERHUB_IMAGE_NAME }}:qr-backup
+            ${{ vars.DOCKERHUB_IMAGE_NAME }}:qr-backup,
+            ${{ vars.DOCKERHUB_IMAGE_NAME }}:qr-backup-${{ steps.date.outputs.date }}
